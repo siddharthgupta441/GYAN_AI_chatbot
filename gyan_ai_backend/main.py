@@ -1,0 +1,52 @@
+import random
+import json
+import pickle
+import numpy as np
+import nltk
+
+from keras.models import load_model
+from nltk.stem import WordNetLemmatizer
+
+lemmatizer = WordNetLemmatizer()
+
+model = load_model("gyan_ai_backend/src/chatbot_model.h5")
+intents = json.loads(open("gyan_ai_backend/src/intents.json").read())
+words = pickle.load(open("gyan_ai_backend/src/words.pkl", "rb"))
+classes = pickle.load(open("gyan_ai_backend/src/classes.pkl", "rb"))
+
+def clean_up(sentence):
+    tokens = nltk.word_tokenize(sentence)
+    tokens = [lemmatizer.lemmatize(word.lower()) for word in tokens]
+    return tokens
+
+def bag_of_words(sentence, words):
+    tokens = clean_up(sentence)
+    bag = [0] * len(words)
+    for s in tokens:
+        for i, w in enumerate(words):
+            if w == s:
+                bag[i] = 1
+    return np.array(bag)
+
+def predict_class(sentence):
+    bow = bag_of_words(sentence, words)
+    res = model.predict(np.array([bow]))[0]
+    ERROR_THRESHOLD = 0.25
+    results = [(i, r) for i, r in enumerate(res) if r > ERROR_THRESHOLD]
+    results.sort(key=lambda x: x[1], reverse=True)
+    return [{"intent": classes[r[0]], "probability": str(r[1])} for r in results]
+
+def get_response(intents_list, intents_json):
+    tag = intents_list[0]["intent"]
+    for intent in intents_json["intents"]:
+        if intent["tag"] == tag:
+            return random.choice(intent["responses"])
+
+print("Bot is running! Type 'quit' to stop.")
+while True:
+    message = input("You: ")
+    if message.lower() == "quit":
+        break
+    ints = predict_class(message)
+    response = get_response(ints, intents)
+    print("Bot:", response)

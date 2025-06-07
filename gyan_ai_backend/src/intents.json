@@ -1,0 +1,26 @@
+{"intents": [
+  {"tag": "greetings",
+  "patterns": ["hello","hey","hi", "hii","good day","Greetings","what's up?","how is it going?"],
+  "responses": ["Hello!","Hey!","What can I do for you?"]
+  },
+
+  {"tag": "name",
+  "patterns": ["what is your name","name","what's your name","who are you","what should I call you"],
+  "responses": ["You can call me GYAN-AI","I'm GYAN-AI","I'm GYAN-AI your virtual assistant"]
+  },
+
+  {"tag": "goodbye",
+  "patterns": ["cya","See you later","Goodbye","I am leaving","Have a Good Day","bye","see ya"],
+  "responses": ["Sad to see you go :(","Talk you later","Goodbye"]
+  },
+
+  {"tag": "invalid",
+    "patterns": ["","gvsd","asbhk"],
+    "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"]
+  },
+
+  {"tag": "thanks",
+    "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
+    "responses": ["Happy to help!", "Any time!", "My pleasure"]
+  }
+]}
