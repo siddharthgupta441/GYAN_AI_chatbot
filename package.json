@@ -1,0 +1,25 @@
+{
+  "name": "gyan_ai_chatbot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd gyan_ai_backend && python app.py",
+    "client": "cd GYANAI_fronend && npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siddharthgupta441/GYAN_AI_chatbot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/siddharthgupta441/GYAN_AI_chatbot/issues"
+  },
+  "homepage": "https://github.com/siddharthgupta441/GYAN_AI_chatbot#readme",
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

@@ -19,7 +19,7 @@ const handleLoginClick = () => {
       <nav className="w-full">
         <div className="flex justify-between items-center bg-gradient-to-r from-indigo-900 via-blue-900 to-purple-900 text-white px-6 py-3 shadow-lg border border-indigo-700">
 
-          {/* Logo & Brand */}
+          {/* this is for logo section*/}
           <div className="flex items-center gap-3 cursor-pointer select-none">
             <div className="p-1 bg-gradient-to-br from-pink-500 via-yellow-400 to-red-500 rounded-full animate-pulse shadow-md">
               <img
@@ -34,10 +34,10 @@ const handleLoginClick = () => {
             <span className="h-3 w-3 bg-green-400 rounded-full animate-pulse" aria-label="online status" />
           </div>
 
-          {/* Desktop Menu */}
+          {/* Desktop menu section*/}
           <div className="hidden sm:flex items-center gap-4">
 
-            {/* Language Select */}
+            {/* select language section */}
             <select
               id="lang"
               className="bg-white/30 backdrop-blur-sm text-white border border-purple-400 rounded-lg px-3 py-1.5 text-sm font-semibold cursor-pointer shadow-md hover:bg-white/50 transition duration-300"
@@ -48,12 +48,12 @@ const handleLoginClick = () => {
               <option className="text-black">Urdu</option>
             </select>
 
-            {/* Login Button */}
+            {/* Login Button
             <button
               className="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-4 py-1.5 rounded-lg font-semibold shadow-lg hover:from-pink-600 hover:to-purple-700 hover:shadow-pink-500/70 transition-transform duration-300 transform hover:scale-110"
             >
               Login
-            </button>
+            </button> */}
           </div>
 
           {/* Hamburger - Mobile */}
@@ -101,12 +101,12 @@ const handleLoginClick = () => {
               <option className="text-black">Urdu</option>
             </select>
 
-            <button onclick={handleLoginClick}
+            {/* <button onclick={handleLoginClick}
               className="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-2 rounded-full font-semibold shadow-lg hover:from-pink-600 hover:to-purple-700 hover:shadow-pink-500/70 transition-transform duration-300 transform hover:scale-105 " 
             
             >
               Login
-            </button>
+            </button> */}
           </div>
         )}
       </nav>
